@@ -26,6 +26,21 @@ def get_page_content(url: str) -> str:
     return response.text
 
 
+def count_word_on_page(url: str, word: str) -> int:
+    """
+    Count how many times a specific word appears on a web page.
+    
+    Args:
+        url: The URL of the web page to analyze.
+        word: The word to count (case-insensitive).
+        
+    Returns:
+        The number of times the word appears on the page.
+    """
+    content = get_page_content(url)
+    return content.lower().count(word.lower())
+
+
 if __name__ == "__main__":
     # Quick test
     test_url = "https://github.com/alexeygrigorev/minsearch"
